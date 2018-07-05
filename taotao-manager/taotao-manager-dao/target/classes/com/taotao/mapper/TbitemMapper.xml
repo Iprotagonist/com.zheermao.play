@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.taotao.mapper.TbitemMapper">
+	<select id="getItemById" resultType="com.taotao.pojo.Tbitem" parameterType="long">
+		select * from tbitem where id = #{id}
+	</select>
+	<!-- 
+		查询商品
+	 -->
+	<select id="getItemList" resultType="com.taotao.pojo.Tbitem" >
+		SELECT * FROM tbitem
+	</select>
+	
+	<insert id="insertIbItem" parameterType="com.taotao.pojo.Tbitem">
+		INSERT INTO tbitem(id,title,sellpoint,price,num,barcode,image,cid,status,created,updated) 
+		VALUE(
+		#{id},
+		#{title},
+		#{sellpoint},
+		#{price},
+		#{num},
+		#{barcode},
+		#{image},
+		#{cid},
+		#{status},
+		#{created},
+		#{updated}
+		)
+	</insert>
+	
+	<!-- 根据商品id删除商品     
+		status字段：1 正常		2 下架	3 删除
+	修改其status字段为3 -->
+	<update id="deleteIbItem" parameterType="long[]">
+		UPDATE 	tbitem SET status = 3 
+		<where>
+			id
+			<foreach collection="array" item="id" open="in (" close=")"  separator=",">
+			#{id}
+			</foreach>
+		</where>
+	</update>
+	<!-- 根据商品id下架商品      -->
+	<update id="selectInstockDownItem" parameterType="long[]">
+		UPDATE 	tbitem SET status = 2 
+		<where>
+			id
+			<foreach collection="array" item="id" open="in (" close=")"  separator=",">
+			#{id}
+			</foreach>
+		</where>
+	</update>
+	<!-- 根据商品id上架架商品      -->
+	<update id="selectInstockUpItem" parameterType="long[]">
+		UPDATE 	tbitem SET status = 1 
+		<where>
+			id
+			<foreach collection="array" item="id" open="in (" close=")"  separator=",">
+			#{id}
+			</foreach>
+		</where>
+	</update>
+</mapper>
