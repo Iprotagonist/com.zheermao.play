@@ -57,8 +57,6 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 			category.setIsparent(true);
 			tbContentCategoryMapper.updateContentCategory(category);
 		}
-		
 		return TaotaoResult.ok(tbcontentcategory);
 	}
-
 }
