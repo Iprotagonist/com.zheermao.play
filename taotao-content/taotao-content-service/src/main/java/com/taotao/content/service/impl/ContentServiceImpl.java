@@ -53,7 +53,7 @@ public class ContentServiceImpl implements ContentService {
 			String json = jedisClient.hget(CONTENT_KEY, categoryId + "");
 			if(StringUtils.isNotBlank(json)){
 				List<Tbcontent> results = JsonUtils.jsonToList(json, Tbcontent.class);
-				System.out.println("从缓存中取值");
+				System.out.println("从redis缓存中取值");
 				return results;
 			}
 		} catch (Exception e1) {
@@ -65,7 +65,7 @@ public class ContentServiceImpl implements ContentService {
 		//把list集合变为json
 		try {
 			jedisClient.hset(CONTENT_KEY, categoryId + "", JsonUtils.objectToJson(results));
-			System.out.println("加入缓存");
+			System.out.println("加入redis缓存");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

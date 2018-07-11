@@ -1,3 +1,6 @@
 F:\IDEA work\taotao\taotao-manager\taotao-manager-service\src\main\java\com\taotao\service\impl\ItemServiceImpl.java
+F:\IDEA work\taotao\taotao-manager\taotao-manager-service\src\main\java\com\taotao\jedis\JedisClient.java
+F:\IDEA work\taotao\taotao-manager\taotao-manager-service\src\main\java\com\taotao\jedis\JedisClientPool.java
 F:\IDEA work\taotao\taotao-manager\taotao-manager-service\src\main\java\com\taotao\service\impl\ItemCatServiceImpl.java
+F:\IDEA work\taotao\taotao-manager\taotao-manager-service\src\main\java\com\taotao\jedis\JedisClientCluster.java
 F:\IDEA work\taotao\taotao-manager\taotao-manager-service\src\main\java\com\taotao\service\impl\PictureServiceImpl.java

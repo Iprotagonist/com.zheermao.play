@@ -4,6 +4,7 @@ import com.common.pojo.EasyUIDataGridResult;
 import com.common.utils.TaotaoResult;
 import com.taotao.pojo.Tbitem;
 import com.taotao.pojo.Tbitemcat;
+import com.taotao.pojo.Tbitemdesc;
 
 public interface ItemService {
 	/**
@@ -59,6 +60,12 @@ public interface ItemService {
 	 * @return
 	 */
 	public TaotaoResult selectTbitemCidById(long id);
-	
+
+	/**
+	 * 根据itemId查询商品描述
+	 * @param itemId
+	 * @return
+	 */
+	Tbitemdesc getItemDescById(long itemId);
 	
 }
